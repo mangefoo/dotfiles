@@ -21,7 +21,7 @@ end
 -- Bind the Hyper key
 f18 = hs.hotkey.bind({}, 'F18', enterHyperMode, exitHyperMode)
 
-hyperBindings = {'c', 'm', 'n', 'p', 'r', 'v', 'w', '0', '8', '9'}
+hyperBindings = {'c', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 'v', 'w', '0', '8', '9'}
 
 for i,key in ipairs(hyperBindings) do
   hyper:bind({}, key, function()
@@ -47,8 +47,11 @@ hs.hotkey.bind(hyperModifier, "r", function()
 end)
 
 hs.hotkey.bind(hyperModifier, '0', function () hs.application.launchOrFocus("iTerm") end)
+hs.hotkey.bind(hyperModifier, 'j', function () hs.application.launchOrFocus("iTerm") end)
 hs.hotkey.bind(hyperModifier, '9', function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(hyperModifier, 'k', function () hs.application.launchOrFocus("Google Chrome") end)
 hs.hotkey.bind(hyperModifier, '8', function () hs.application.launchOrFocus("IntelliJ IDEA CE") end)
+hs.hotkey.bind(hyperModifier, 'l', function () hs.application.launchOrFocus("IntelliJ IDEA CE") end)
 
 hs.hotkey.bind(hyperModifier, 'c', function()
   local currentScreen = mouse.getCurrentScreen()
