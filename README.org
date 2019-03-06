@@ -9,8 +9,6 @@ From https://github.com/j-martin/dotfiles
  home remote add origin git@github.com:mangefoo/dotfiles.git
  home fetch
  home checkout master
- home submodule init
- home submodule update
  #+end_src
 ** Setup and configuration
 Install applications and other configurations.
