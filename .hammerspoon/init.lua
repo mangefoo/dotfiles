@@ -21,7 +21,7 @@ end
 -- Bind the Hyper key
 f18 = hs.hotkey.bind({}, 'F18', enterHyperMode, exitHyperMode)
 
-hyperBindings = {'c', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 'v', 'w', '0', '8', '9'}
+hyperBindings = {'c', 'f', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 'v', 'w', '0', '8', '9'}
 
 for i,key in ipairs(hyperBindings) do
   hyper:bind({}, key, function()
@@ -52,6 +52,26 @@ hs.hotkey.bind(hyperModifier, '9', function () hs.application.launchOrFocus("Goo
 hs.hotkey.bind(hyperModifier, 'k', function () hs.application.launchOrFocus("Google Chrome") end)
 hs.hotkey.bind(hyperModifier, '8', function () hs.application.launchOrFocus("IntelliJ IDEA CE") end)
 hs.hotkey.bind(hyperModifier, 'l', function () hs.application.launchOrFocus("IntelliJ IDEA CE") end)
+
+hs.hotkey.bind(hyperModifier, 'h', function()
+  hs.osascript.applescript([[
+    ignoring application responses
+      tell application "System Events" to tell process "Hammerspoon"
+        click menu bar item 1 of menu bar 2
+      end tell
+    end ignoring
+  ]])
+end)
+
+hs.hotkey.bind(hyperModifier, 'f', function()
+  local app = hs.application.frontmostApplication()
+
+  if app:selectMenuItem({"File"}, true) then
+    print("fund it")
+  else
+    print("did not find it")
+  end
+end)
 
 hs.hotkey.bind(hyperModifier, 'c', function()
   local currentScreen = mouse.getCurrentScreen()
