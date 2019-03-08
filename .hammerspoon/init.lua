@@ -1,5 +1,11 @@
 local mouse = require 'hs.mouse'
 
+local hostConfig = {
+  C02S60VDG8WL = {
+    intellij = 'IntelliJ IDEA'
+  }
+}
+
 hyper = hs.hotkey.modal.new({}, 'f17')
 local hyperModifier = {"cmd", "alt", "shift", "ctrl"}
 
@@ -21,7 +27,7 @@ end
 -- Bind the Hyper key
 f18 = hs.hotkey.bind({}, 'F18', enterHyperMode, exitHyperMode)
 
-hyperBindings = {'c', 'f', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 'v', 'w', '0', '8', '9'}
+hyperBindings = {'c', 'f', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 'v', 'w', '0', '8', '9', ';'}
 
 for i,key in ipairs(hyperBindings) do
   hyper:bind({}, key, function()
@@ -50,8 +56,19 @@ hs.hotkey.bind(hyperModifier, '0', function () hs.application.launchOrFocus("iTe
 hs.hotkey.bind(hyperModifier, 'j', function () hs.application.launchOrFocus("iTerm") end)
 hs.hotkey.bind(hyperModifier, '9', function () hs.application.launchOrFocus("Google Chrome") end)
 hs.hotkey.bind(hyperModifier, 'k', function () hs.application.launchOrFocus("Google Chrome") end)
-hs.hotkey.bind(hyperModifier, '8', function () hs.application.launchOrFocus("IntelliJ IDEA CE") end)
-hs.hotkey.bind(hyperModifier, 'l', function () hs.application.launchOrFocus("IntelliJ IDEA CE") end)
+hs.hotkey.bind(hyperModifier, ';', function () hs.application.launchOrFocus("Slack") end)
+hs.hotkey.bind(hyperModifier, '8', function () launchOrFocusIntelliJ() end)
+hs.hotkey.bind(hyperModifier, 'l', function () launchOrFocusIntelliJ() end)
+
+function launchOrFocusIntelliJ()
+  local hostname = hs.host.localizedName()
+  local intellij = "IntelliJ IDEA CE"
+  if (hostConfig[hostname] ~= nil) and (hostConfig[hostname]['intellij'] ~= nil) then
+    intellij = hostConfig[hostname]['intellij']
+  end
+
+  hs.application.launchOrFocus(intellij)
+end
 
 hs.hotkey.bind(hyperModifier, 'h', function()
   hs.osascript.applescript([[
