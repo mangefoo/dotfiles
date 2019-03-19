@@ -177,7 +177,7 @@ hs.hotkey.bind(hyperModifier, "n", function()
 end)
 
 hs.hotkey.bind(hyperModifier, "x", function()
-    hs.eventtap.leftClick(mouse.getRelativePosition())
+    hs.eventtap.leftClick(mouse.getRelativePosition(), 0)
 end)
 
 hs.alert.show("Config loaded")
