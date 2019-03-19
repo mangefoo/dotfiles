@@ -27,7 +27,7 @@ end
 -- Bind the Hyper key
 f18 = hs.hotkey.bind({}, 'F18', enterHyperMode, exitHyperMode)
 
-hyperBindings = {'c', 'f', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 'v', 'w', '0', '8', '9', ';'}
+hyperBindings = {'x', 'c', 'f', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 'v', 'w', '0', '8', '9', ';'}
 
 for i,key in ipairs(hyperBindings) do
   hyper:bind({}, key, function()
@@ -174,6 +174,10 @@ hs.hotkey.bind(hyperModifier, "n", function()
       hs.alert.show("WiFi IP: " .. v, hs.alert.defaultStyle, hs.window.focusedWindow():screen(), 5) 
     end
   end
+end)
+
+hs.hotkey.bind(hyperModifier, "x", function()
+    hs.eventtap.leftClick(mouse.getRelativePosition())
 end)
 
 hs.alert.show("Config loaded")
