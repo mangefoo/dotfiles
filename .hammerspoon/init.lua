@@ -82,9 +82,16 @@ end)
 
 hs.hotkey.bind(hyperModifier, 'f', function()
   local app = hs.application.frontmostApplication()
+  local menuItem = "File"
 
-  if app:selectMenuItem({"File"}, true) then
-    print("fund it")
+  if (app:title() == "iTerm2") then
+    menuItem = "Shell"
+  end
+
+  print(app:title())
+
+  if app:selectMenuItem({menuItem}, true) then
+    print("found it")
   else
     print("did not find it")
   end
