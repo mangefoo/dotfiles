@@ -152,7 +152,9 @@ function ssidChangedCallback()
     if SSID == nil then
         SSID = "Disconnected"
     end
-    wifiMenu:setTitle("[" .. SSID .. "]" )
+
+    title = hs.styledtext.new("[" .. SSID .. "]",{font={size=11}})
+    wifiMenu:setTitle(title);
 end
 wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
 wifiWatcher:start()
