@@ -59,6 +59,12 @@ hs.hotkey.bind(hyperModifier, 'k', function () hs.application.launchOrFocus("Goo
 hs.hotkey.bind(hyperModifier, ';', function () hs.application.launchOrFocus("Slack") end)
 hs.hotkey.bind(hyperModifier, '8', function () launchOrFocusIntelliJ() end)
 hs.hotkey.bind(hyperModifier, 'l', function () launchOrFocusIntelliJ() end)
+hs.hotkey.bind(hyperModifier, 'o', function () awsMfa("sonic") end)
+
+function awsMfa(env)
+ local result = hs.execute('~/bin/mfa ' .. env)
+ hs.alert.show(result:gsub("%s+", ""), 5)
+end
 
 function launchOrFocusIntelliJ()
   local hostname = hs.host.localizedName()
