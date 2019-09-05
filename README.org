@@ -10,8 +10,3 @@ From https://github.com/j-martin/dotfiles
  home fetch
  home checkout master
  #+end_src
-** Setup and configuration
-Install applications and other configurations.
- #+begin_src shell
- .setup/setup.sh
- #+end_src
