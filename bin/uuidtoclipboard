@@ -1,0 +1,6 @@
+#!/bin/bash
+
+UUID=`/usr/bin/uuidgen | tr '[:upper:]' '[:lower:]' | tr -d '\n'`
+echo -n $UUID | pbcopy
+echo $UUID
+

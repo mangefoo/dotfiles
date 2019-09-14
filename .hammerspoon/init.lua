@@ -3,6 +3,9 @@ local mouse = require 'hs.mouse'
 local hostConfig = {
   C02S60VDG8WL = {
     intellij = 'IntelliJ IDEA'
+  },
+  wintermute = {
+    intellij = 'IntelliJ IDEA'
   }
 }
 
@@ -27,7 +30,7 @@ end
 -- Bind the Hyper key
 f18 = hs.hotkey.bind({}, 'F18', enterHyperMode, exitHyperMode)
 
-hyperBindings = {'x', 'c', 'f', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 'v', 'w', '0', '8', '9', ';'}
+hyperBindings = {'x', 'c', 'f', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 'u', 'v', 'w', '0', '8', '9', ';'}
 
 for i,key in ipairs(hyperBindings) do
   hyper:bind({}, key, function()
@@ -60,10 +63,16 @@ hs.hotkey.bind(hyperModifier, ';', function () hs.application.launchOrFocus("Sla
 hs.hotkey.bind(hyperModifier, '8', function () launchOrFocusIntelliJ() end)
 hs.hotkey.bind(hyperModifier, 'l', function () launchOrFocusIntelliJ() end)
 hs.hotkey.bind(hyperModifier, 'o', function () awsMfa("sonic") end)
+hs.hotkey.bind(hyperModifier, 'u', function () uuidGen() end)
 
 function awsMfa(env)
  local result = hs.execute('~/bin/mfa ' .. env)
  hs.alert.show(result:gsub("%s+", ""), 5)
+end
+
+function uuidGen()
+ local result = hs.execute('~/bin/uuidtoclipboard'):gsub("%s+", "")
+ hs.alert.show(result, 2)
 end
 
 function launchOrFocusIntelliJ()
@@ -165,6 +174,15 @@ end
 wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
 wifiWatcher:start()
 ssidChangedCallback()
+
+local uptimeMenu = hs.menubar.new()
+function uptimeCallback()
+    local uptime = hs.execute('uptime'):gsub('^.*up%s(.-),.*$', '%1'):gsub(' mins', 'm')
+    title = hs.styledtext.new("|" .. uptime .. "|",{font={size=11}})
+    uptimeMenu:setTitle(title)
+end
+uptimeCallback()
+hs.timer.doEvery(60, uptimeCallback)
 
 function pingResult(object, message, seqnum, error)
     if message == "didFinish" then
