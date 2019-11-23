@@ -10,7 +10,6 @@ function exit_hook() {
   profile "Default"
 }
 
-
 profile "SSH"
 /usr/bin/ssh "$@"
 profile "Default"
