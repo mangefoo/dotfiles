@@ -1,0 +1,16 @@
+#!/bin/bash
+
+trap exit_hook EXIT
+
+function profile() {
+  echo -n "]1337;SetProfile=$1"
+}
+
+function exit_hook() {
+  profile "Default"
+}
+
+
+profile "Production"
+/usr/bin/ssh "$@"
+profile "Default"

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  FILE=`ls -1 ~/.aws/*.mfa | head -1`
+else
+  FILE=~/.aws/$1.mfa
+fi
+
+/usr/local/bin/oathtool --base32 --totp "$(cat $FILE)"
