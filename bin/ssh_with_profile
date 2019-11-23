@@ -11,6 +11,6 @@ function exit_hook() {
 }
 
 
-profile "Production"
+profile "SSH"
 /usr/bin/ssh "$@"
 profile "Default"
