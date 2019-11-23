@@ -1,0 +1,5 @@
+# Dotfiles
+alias home="git --work-tree=$HOME --git-dir=$HOME/.files.git"
+
+# Profile change SSH wrapper
+alias ssh='~/bin/ssh_with_profile'
