@@ -5,5 +5,6 @@ alias home="git --work-tree=$HOME --git-dir=$HOME/.files.git"
 alias ssh='~/bin/ssh_with_profile'
 
 export PATH=$PATH:~/bin
+export PATH=$PATH:/usr/local/opt/mysql-client/bin
 
 source ~/.zshrc.custom

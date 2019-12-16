@@ -6,6 +6,9 @@ local hostConfig = {
   },
   wintermute = {
     intellij = 'IntelliJ IDEA'
+  },
+  rachel = {
+    intellij = 'IntelliJ IDEA'
   }
 }
 
@@ -58,7 +61,7 @@ end)
 hs.hotkey.bind(hyperModifier, '0', function () hs.application.launchOrFocus("iTerm") end)
 hs.hotkey.bind(hyperModifier, 'j', function () hs.application.launchOrFocus("iTerm") end)
 hs.hotkey.bind(hyperModifier, '9', function () hs.application.launchOrFocus("Google Chrome") end)
-hs.hotkey.bind(hyperModifier, 'k', function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(hyperModifier, 'k', function () hs.application.launchOrFocus("Firefox") end)
 hs.hotkey.bind(hyperModifier, ';', function () hs.application.launchOrFocus("Slack") end)
 hs.hotkey.bind(hyperModifier, '8', function () launchOrFocusIntelliJ() end)
 hs.hotkey.bind(hyperModifier, 'l', function () launchOrFocusIntelliJ() end)

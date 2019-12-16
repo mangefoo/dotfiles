@@ -4,7 +4,10 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew cask install iterm2 intellij-idea karabiner-elements firefox hammerspoon menumeters little-snitch micro-snitch steam docker vlc spotify nordvpn slack 
-brew install macvim vlc awscli htop oath-toolkit npm jq
+brew install macvim vlc awscli htop oath-toolkit npm jq tmux maven libpq tree mysql-client
+
+# Link libpq
+brew link --force libpq
 
 # Oh my zsh!
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
