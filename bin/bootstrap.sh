@@ -4,7 +4,7 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew cask install iterm2 intellij-idea karabiner-elements firefox hammerspoon menumeters little-snitch micro-snitch steam docker vlc spotify nordvpn slack authy
-brew install macvim vlc awscli htop oath-toolkit npm jq tmux maven libpq tree mysql-client cowsay telnet fzf wget
+brew install macvim awscli htop oath-toolkit npm jq tmux maven libpq tree mysql-client cowsay telnet fzf wget
 
 # Link libpq
 brew link --force libpq
