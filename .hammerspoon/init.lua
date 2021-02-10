@@ -1,4 +1,5 @@
 local mouse = require 'hs.mouse'
+local wm = require('window-management')
 
 local hostConfig = {
   C02S60VDG8WL = {
@@ -33,7 +34,7 @@ end
 -- Bind the Hyper key
 f18 = hs.hotkey.bind({}, 'F18', enterHyperMode, exitHyperMode)
 
-hyperBindings = {'x', 'c', 'f', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 'u', 'v', 'w', '0', '8', '9', ';'}
+hyperBindings = {'x', 'c', 'f', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 'u', 'v', 'w', 'y', '0', '8', '9', ';'}
 
 for i,key in ipairs(hyperBindings) do
   hyper:bind({}, key, function()
@@ -65,7 +66,6 @@ hs.hotkey.bind(hyperModifier, 'k', function () hs.application.launchOrFocus("Fir
 hs.hotkey.bind(hyperModifier, ';', function () hs.application.launchOrFocus("Slack") end)
 hs.hotkey.bind(hyperModifier, '8', function () launchOrFocusIntelliJ() end)
 hs.hotkey.bind(hyperModifier, 'l', function () launchOrFocusIntelliJ() end)
-hs.hotkey.bind(hyperModifier, 'o', function () awsMfa("sonic") end)
 hs.hotkey.bind(hyperModifier, 'u', function () uuidGen() end)
 
 function awsMfa(env)
@@ -218,3 +218,13 @@ end)
 
 hs.alert.show("Config loaded")
 
+-- Window Management
+hs.hotkey.bind(hyperModifier, 'o', function()
+  wm.moveWindowToPosition(wm.screenPositions.right)
+end)
+hs.hotkey.bind(hyperModifier, 'i', function()
+  wm.moveWindowToPosition(wm.screenPositions.left)
+end)
+hs.hotkey.bind(hyperModifier, 'y', function()
+  wm.windowMaximize(0)
+end)
